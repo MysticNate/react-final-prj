@@ -2,9 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 
 const CategoryContext = createContext();
 
-export function useCategories() {
-    return useContext(CategoryContext);
-}
+export const useCategories = () => useContext(CategoryContext);
 
 // provider component to manage categories
 export function CategoryProvider({ children }) {
