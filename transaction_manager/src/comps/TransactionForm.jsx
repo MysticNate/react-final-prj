@@ -17,7 +17,7 @@ import { useCategories } from "../contexts/CategoryContext";
 export default function TransactionForm({ onSubmit, initialValues }) {
     const [description, setDescription] = useState(
         initialValues?.description || "" // ? checks if the value exists
-    ); 
+    ); // we use || to set default value if it doesn't exist otherwise it will be undefined which is not a string
     const [amount, setAmount] = useState(
         initialValues?.amount?.toString() || ""
     );
@@ -30,7 +30,7 @@ export default function TransactionForm({ onSubmit, initialValues }) {
 
         // validation
         if (!description || !amount || amount <= 0) {
-            alert("Please fill all fields correctly");
+            alert("Please fill description and amount correctly");
             return;
         }
 

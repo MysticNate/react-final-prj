@@ -25,7 +25,7 @@ export function CategoryProvider({ children }) {
     };
 
     return (
-        <CategoryContext.Provider
+        <CategoryContext.Provider // provider is for passing data to children
             value={{ categories, addCategory, removeCategory }}
         >
             {children}

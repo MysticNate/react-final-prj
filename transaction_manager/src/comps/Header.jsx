@@ -35,7 +35,7 @@ export default function Header() {
                     </Typography>
                     <Avatar
                         src={currentUser.profilePic}
-                        alt={currentUser.name || currentUser.username}
+                        alt={currentUser.username[0]}
                         sx={{ marginLeft: 1 }}
                     />
                     {/* dark mode button */}

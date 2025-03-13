@@ -24,14 +24,11 @@ export const ThemeProviderWrapper = ({ children }) => {
     };
 
     // create theme based on current mode
-    const theme = createTheme({
+    const theme = createTheme({ 
         palette: {
             mode: darkMode ? "dark" : "light",
             primary: {
                 main: "#1976d2",
-            },
-            secondary: {
-                main: "#dc004e",
             },
         },
     });

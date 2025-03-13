@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext } from "react";
-import { v4 as uuidv4 } from "../utils/uuid";
+import React, { createContext, useState, useContext, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useUser } from "./UserContext";
 
 const TransactionContext = createContext(null); 
@@ -8,15 +8,21 @@ export const useTransactions = () => useContext(TransactionContext);
 
 export const TransactionProvider = ({ children }) => { 
     const { currentUser } = useUser();
-    
-    const [transactions, setTransactions] = useState(() => {
-        if (!currentUser) return [];
+    const [transactions, setTransactions] = useState([]);
 
-        const allTransactions = JSON.parse(
-            localStorage.getItem("transactions") || "[]"
-        );
-        return allTransactions.filter((t) => t.userId === currentUser.id);
-    });
+    useEffect(() => {
+        if (currentUser) {
+            const allTransactions = JSON.parse(
+                localStorage.getItem("transactions") || "[]"
+            );
+            const userTransactions = allTransactions.filter(
+                (t) => t.userId === currentUser.id
+            );
+            setTransactions(userTransactions);
+        } else {
+            setTransactions([]);
+        }
+    }, [currentUser]);
 
     // save transactions to local storage
     const saveToStorage = (newTransactions) => {

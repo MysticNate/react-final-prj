@@ -12,7 +12,7 @@ import Register from "./pages/Register";
 import TransactionsPage from "./pages/TransactionsPage";
 import Profile from "./pages/Profile";
 
-export default function App() {
+export default function App() { 
   return (
     <ThemeProviderWrapper>
       <UserProvider>

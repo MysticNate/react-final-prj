@@ -20,7 +20,7 @@ export default function HomePage() {
             <Header />
             <Container maxWidth="lg">
                 <Typography variant="h4" marginBottom="20px" marginTop="10px">
-                    Welcome Back {currentUser?.name}!
+                    Welcome Back {currentUser?.username}!
                 </Typography>
 
                 {/* summary of transactions */}
